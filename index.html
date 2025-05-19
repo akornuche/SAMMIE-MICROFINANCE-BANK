@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome :: SAMMIE MFB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bank-header">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/bank-building.png" alt="Bank Logo">
+    <h1>SAMMIE Microfinance Bank</h1>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginForm" class="form-container" style="display:block;">
+    <h2>Login</h2>
+    <input type="text" id="loginUsername" placeholder="Username"><br>
+    <input type="password" id="loginPassword" placeholder="Password"><br>
+    <div class="row-buttons">
+      <button class="oneline" onclick="loginUser()">Login</button>
+      <button class="oneline" onclick="startFaceLogin()">Login with Face</button>
+    </div>
+  </div>
+
+  <!-- Register Form -->
+  <div id="registerForm" class="form-container" style="display:none;">
+    <h2>Register User</h2>
+    <input type="text" id="registerUsername" placeholder="Username"><br>
+    <input type="password" id="registerPassword" placeholder="Password"><br>
+    <input type="text" id="registerFullName" placeholder="Full Name"><br>
+    <button onclick="registerUser()">Register</button>
+    <p id="registerStatus"></p>
+  </div>
+
+  <!-- Form Switcher -->
+  <div class="form-switcher">
+    <button onclick="showForm('loginForm')">Login</button>
+    <button onclick="showForm('registerForm')">Register User</button>
+  </div>
+
+  <p id="status"></p>
+
+  
+  <!-- Face Login Container -->
+<div id="faceLoginContainer" style="display: none;">
+  <div style="position: relative; display: inline-block;">
+    <video id="faceVideo" width="320" height="240" autoplay muted playsinline></video>
+    <canvas id="faceCanvas" width="320" height="240"></canvas>
+  </div>
+  <button id="faceLoginBtn" onclick="startFaceLogin()">Login with Face</button>
+  <button id="confirmLoginBtn" style="display: none;" onclick="confirmFaceLogin()">Login</button>
+
+    <div id="faceStatus"></div> <!-- Success or Failure Message -->
+</div>
+
+<!-- Add this before your script.js -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+<script src="script.js">    </script>
+<!-- Load MediaPipe dependencies first -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh@0.0.5/dist/facemesh.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<!-- Then your app scripts -->
+
+
+
+</body>
+</html>

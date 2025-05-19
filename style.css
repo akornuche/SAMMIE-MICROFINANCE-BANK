@@ -1,0 +1,118 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom right, #f4f4f4, #e0e0e0);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    height: 100vh;
+  }
+  
+  .bank-header {
+    width: 100%;
+    background-color: #004d40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .bank-header img {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+  .bank-header h1 {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+    vertical-align: middle;
+    margin: 0;
+  }
+  
+  .form-container {
+    background-color: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  input {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  button {
+    width: 80%;
+    padding: 12px;
+    margin: 6px 0;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .row-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .row-buttons .oneline {
+    flex: 1;
+  }
+  
+  button:hover {
+    background-color: #004d40;
+  }
+  
+  #video {
+    margin-top: 15px;
+    border: 2px solid #004d40;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  #status {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #004d40;
+  }
+  
+  @media (max-width: 500px) {
+    .bank-header h1 {
+      font-size: 20px;
+    }
+  
+    .form-container {
+      padding: 20px;
+    }
+  }
+
+  #faceCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  

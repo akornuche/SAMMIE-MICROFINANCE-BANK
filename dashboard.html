@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Dashboard :: SAMMIE MFB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bank-header">
+    <img src="https://img.icons8.com/ios-filled/100/ffffff/bank-building.png" alt="Bank Logo">
+    <h1>SAMMIE Microfinance Bank</h1>
+  </div>
+
+  <div class="form-container" style="text-align: center;">
+    <h2 id="welcomeName">Welcome!</h2>
+    <p>Your account balance is:</p>
+    <h1 style="color: green;">₦205,000.00</h1>
+    
+    
+    <!-- Register Face Button -->
+    <button id="faceFormBtn" onclick="showForm('faceForm')">Register Face</button>
+
+    <p id="faceStatus" style="margin-top: 10px; font-weight: bold;"></p>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Face Registration -->
+  <div id="faceForm" class="form-container" style="display:none;">
+    <h2>Register Face</h2>
+    <input type="text" id="faceUsername" placeholder="Registered Username"><br>
+    <div style="position: relative; display: inline-block;">
+      <video id="faceVideo" width="320" height="240" autoplay muted playsinline></video>
+      <canvas id="faceCanvas" width="320" height="240"></canvas>
+    </div>
+    <button onclick="registerUserFace()">Capture & Save Face</button>
+  </div>
+
+
+  <!-- Hide Face Button if face is registered -->
+  <script>
+    window.onload = function () {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      if (currentUser && currentUser.faceDescriptor) {
+        const faceBtn = document.getElementById('faceFormBtn');
+        if (faceBtn) faceBtn.style.display = 'none';
+
+        const status = document.getElementById('faceStatus');
+        if (status) status.textContent = "Face already registered.";
+      }
+
+      const welcomeEl = document.getElementById('welcomeName');
+      if (welcomeEl && currentUser.fullName) {
+        welcomeEl.textContent = `Welcome, ${currentUser.fullName}!`;
+      }
+    };
+  </script>
+  <!-- MediaPipe scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+<!-- Your JS -->
+<script src="dashboard.js"></script>
+
+</body>
+</html>
