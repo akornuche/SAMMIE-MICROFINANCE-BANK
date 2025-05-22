@@ -72,10 +72,10 @@ function onFaceResults(results) {
     ctx.strokeRect(minX, minY, maxX - minX, maxY - minY);
 
     // Capture descriptor
-    capturedFaceDescriptor = face.map(pt => [pt.x, pt.y, pt.z]);
+    capturedFaceDescriptor = face.flatMap(pt => [pt.x, pt.y, pt.z]);
   } else {
     capturedFaceDescriptor = null;
-  }
+  } 
 }
 
 
