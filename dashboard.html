@@ -15,18 +15,16 @@
     <h2 id="welcomeName">Welcome!</h2>
     <p>Your account balance is:</p>
     <h1 style="color: green;">₦205,000.00</h1>
-    
-    
+
     <!-- Register Face Button -->
     <button id="faceFormBtn" onclick="showForm('faceForm')">Register Face</button>
 
     <p id="faceStatus" style="margin-top: 10px; font-weight: bold;"></p>
-
     <button onclick="logout()">Logout</button>
   </div>
 
-  <!-- Face Registration -->
-  <div id="faceForm" class="form-container" style="display:none;">
+  <!-- Face Registration Form -->
+  <div id="faceForm" class="form-container" style="display: none;">
     <h2>Register Face</h2>
     <input type="text" id="faceUsername" placeholder="Registered Username"><br>
     <div style="position: relative; display: inline-block;">
@@ -36,9 +34,8 @@
     <button onclick="registerUserFace()">Capture & Save Face</button>
   </div>
 
-
-  <!-- Hide Face Button if face is registered -->
-  <script>
+  <!-- Hide Register Button if face is already registered -->
+  <script defer>
     window.onload = function () {
       const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
       if (currentUser && currentUser.faceDescriptor) {
@@ -55,12 +52,11 @@
       }
     };
   </script>
-  <!-- MediaPipe scripts -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 
-<!-- Your JS -->
-<script src="dashboard.js"></script>
+  <!-- Load face-api.js BEFORE your dashboard script -->
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
 
+  <!-- Your custom dashboard script -->
+  <script defer src="dashboard.js"></script>
 </body>
 </html>

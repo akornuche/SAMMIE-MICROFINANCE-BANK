@@ -107,11 +107,21 @@ body {
     }
   }
 
+  #faceLoginWrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  #faceVideo {
+    display: block;
+    width: 100%; /* Responsive */
+    height: auto;
+  }
+
   #faceCanvas {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2;
     pointer-events: none;
   }
 

@@ -42,25 +42,19 @@
 
   
   <!-- Face Login Container -->
-<div id="faceLoginContainer" style="display: none;">
-  <div style="position: relative; display: inline-block;">
-    <video id="faceVideo" width="320" height="240" autoplay muted playsinline></video>
-    <canvas id="faceCanvas" width="320" height="240"></canvas>
-  </div>
-  <button id="faceLoginBtn" onclick="startFaceLogin()">Login with Face</button>
-  <button id="confirmLoginBtn" style="display: none;" onclick="confirmFaceLogin()">Login</button>
-
-    <div id="faceStatus"></div> <!-- Success or Failure Message -->
+<div id="faceLoginContainer" style="display: none; position: relative;">
+  <video id="faceVideo" width="320" height="240" autoplay muted playsinline></video>
+  <canvas id="faceCanvas" width="320" height="240"
+    style="position: absolute; top: 0; left: 0; z-index: 1;"></canvas>
+  <div id="faceStatus" style="margin-top: 10px;"></div>
 </div>
 
-<!-- Add this before your script.js -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
-<script src="script.js">    </script>
-<!-- Load MediaPipe dependencies first -->
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/facemesh@0.0.5/dist/facemesh.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
 
-<!-- Then your app scripts -->
+<!-- Add this before your script.js -->
+<!-- ✅ Load face-api.js (browser-ready version) -->
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+<script src="script.js">    </script>
+
 
 
 
